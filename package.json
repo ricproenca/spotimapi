@@ -1,0 +1,67 @@
+{
+  "name": "spotimapi",
+  "version": "0.0.1",
+  "description": "Spotify Playlists Management API",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricproenca/spotimapi.git"
+  },
+  "keywords": [
+    "spotify",
+    "playlists",
+    "management",
+    "REST API",
+    "MongoDB"
+  ],
+  "author": "Ricardo Proenca",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ricproenca/spotimapi/issues"
+  },
+  "homepage": "https://github.com/ricproenca/spotimapi#readme",
+  "scripts": {
+    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\" --ignore-path .gitignore",
+    "lint": "eslint tests/**/*.js config/**/*.js src/**/*.{js,jsx} --ignore-path .gitignore",
+    "lint:fix": "eslint test/**/*.js config/**/*.js src/**/*.{js,jsx} --fix --ignore-path .gitignore",
+    "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --colors",
+    "test:update": "jest --updateSnapshot",
+    "report:bundle": "http-server ./reports/bundle",
+    "report:coverage": "http-server ./reports/tests/lcov-report/",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build && node ./build/index.js",
+    "dev": "nodemon ./src/index.js --ext *"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongodb": "^4.3.1",
+    "supertest": "^6.2.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.0",
+    "@babel/core": "^7.17.2",
+    "@babel/eslint-parser": "^7.16.0",
+    "@babel/eslint-plugin": "^7.14.5",
+    "@babel/node": "^7.16.8",
+    "@babel/plugin-proposal-export-default-from": "^7.16.7",
+    "@babel/plugin-proposal-function-bind": "^7.16.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.16.7",
+    "@babel/preset-env": "^7.16.11",
+    "connect-livereload": "^0.6.1",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^25.2.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-testing-library": "^5.0.0",
+    "jest": "^27.3.1",
+    "livereload": "^0.9.3",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
+  }
+}
