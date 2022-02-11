@@ -1,0 +1,12 @@
+.DS_STORE
+node_modules
+build/
+dist/
+coverage/
+reports/
+playground/
+*.log*
+*.iml
+.idea
+.vscode
+.env
