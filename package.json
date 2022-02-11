@@ -20,6 +20,7 @@
     "url": "https://github.com/ricproenca/spotimapi/issues"
   },
   "homepage": "https://github.com/ricproenca/spotimapi#readme",
+  "type": "module",
   "scripts": {
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\" --ignore-path .gitignore",
     "lint": "eslint tests/**/*.js config/**/*.js src/**/*.{js,jsx} --ignore-path .gitignore",
@@ -33,7 +34,8 @@
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
     "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./build/index.js"
+    "start": "npm run build && node ./build/index.js",
+    "dev": "nodemon ./src/index.js --ext *"
   },
   "dependencies": {
     "express": "^4.17.2",
@@ -50,6 +52,7 @@
     "@babel/plugin-proposal-function-bind": "^7.16.7",
     "@babel/plugin-proposal-object-rest-spread": "^7.16.7",
     "@babel/preset-env": "^7.16.11",
+    "connect-livereload": "^0.6.1",
     "eslint": "^8.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-alias": "^1.1.2",
@@ -58,6 +61,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-testing-library": "^5.0.0",
     "jest": "^27.3.1",
+    "livereload": "^0.9.3",
+    "nodemon": "^2.0.15",
     "prettier": "^2.5.1"
   }
 }

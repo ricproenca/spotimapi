@@ -1,3 +1,20 @@
-import app from './app/index';
+import connectLiveReload from 'connect-livereload';
+import express from 'express';
+import livereload from 'livereload';
 
-app.listen(process.env.PORT || 5000, () => console.log('Listening to port 5000'));
+const liveReloadServer = livereload.createServer();
+liveReloadServer.server.once('connection', () => {
+  setTimeout(() => {
+    liveReloadServer.refresh('/');
+  }, 100);
+});
+
+const app = express();
+
+app.use(connectLiveReload());
+
+app.get('/ping', (_req, res) => {
+  res.status(200).json({ data: 'Pong!!' });
+});
+
+export default app;

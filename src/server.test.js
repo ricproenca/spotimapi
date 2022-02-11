@@ -1,7 +1,6 @@
-/* eslint-disable jest/expect-expect */
 import request from 'supertest';
 
-import app from '../tests/setupTests';
+import app from './tests/setupTests.js';
 
 describe('GET /ping', () => {
   it('should return a 200 and a message', async () => {
