@@ -1,3 +1,11 @@
+import dotenv from 'dotenv';
+
 import app from './server/apiServer';
 
-app.listen(process.env.PORT || 5000, () => console.log('.. and the magic happens at port 5000!'));
+dotenv.config();
+
+const port = process.env.PORT || 5000;
+// eslint-disable-next-line no-console
+const callback = () => console.log(`API Server on port ${port}!`);
+
+app.listen(port, callback);
