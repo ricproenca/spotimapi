@@ -1,4 +1,4 @@
-import logger from '../../utils/logger';
+import logger from '../../services/logger';
 
 const validate = schema => (req, res, next) => {
   try {

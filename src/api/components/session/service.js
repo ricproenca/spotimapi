@@ -1,7 +1,7 @@
 import { get } from 'lodash';
 
 import config from '../../../config/default';
-import { signJwt, verifyJwt } from '../../../utils/jwt';
+import { signJwt, verifyJwt } from '../../../services/jwt';
 import { findUser } from '../user/service';
 
 import SessionModel from './model';

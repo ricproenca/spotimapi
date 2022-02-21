@@ -1,6 +1,6 @@
 import config from '../../../config/default';
-import { signJwt } from '../../../utils/jwt';
-import logger from '../../../utils/logger';
+import { signJwt } from '../../../services/jwt';
+import logger from '../../../services/logger';
 import { validatePassword } from '../user/service';
 
 import { createSession, findSessions, updateSession } from './service';

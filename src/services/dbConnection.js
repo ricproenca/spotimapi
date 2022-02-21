@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-import logger from '../utils/logger';
+import logger from '../services/logger';
 
 const connect = async () => {
   try {

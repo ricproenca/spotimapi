@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 
 import connect from '../services/dbConnection';
-import logger from '../utils/logger';
+import logger from '../services/logger';
 
 import '../utils/liveReload';
 import deserializeUser from './middleware/deserializeUser';

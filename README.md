@@ -9,11 +9,12 @@ https://medium.com/swlh/how-i-structure-my-node-js-rest-apis-4e8904ccd2fb
   /db           - database scripts
   /api            - everything needed for the REST API
     /components
-      /user       - component routers, controllers, models, tests and more
+      /user       - controllers, models, schema, service
     /middleware   - API middleware
   /config       - global configuration files
   /services     - services for sending mails, caching, authentication and more
   /test         - test factory
+  /utils        - utils
 ```
 
 ## tools

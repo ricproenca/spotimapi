@@ -1,6 +1,6 @@
 import { omit } from 'lodash';
 
-import logger from '../../../utils/logger';
+import logger from '../../../services/logger';
 
 import { createUser } from './service';
 

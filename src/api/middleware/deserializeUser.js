@@ -1,6 +1,6 @@
 import { get } from 'lodash';
 
-import { verifyJwt } from '../../utils/jwt';
+import { verifyJwt } from '../../services/jwt';
 import { reIssueAccessToken } from '../components/session/service';
 
 const deserializeUser = async (req, res, next) => {

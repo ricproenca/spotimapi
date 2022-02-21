@@ -1,4 +1,4 @@
-import logger from '../../utils/logger';
+import logger from '../../services/logger';
 import { createSessionHandler, deleteSessionHandler, getUserSessionsHandler } from '../components/session/controller';
 import { createSessionSchema } from '../components/session/schema';
 import { createUserHandler } from '../components/user/controller';
