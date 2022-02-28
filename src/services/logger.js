@@ -25,6 +25,7 @@ const streams = [{ stream: process.stdout }];
 
 const logger = pino(
   {
+    level: 'debug',
     base: {
       pid: undefined,
       hostname: undefined

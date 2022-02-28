@@ -1,5 +1,9 @@
 import logger from '../../services/logger';
-import { createSessionHandler, deleteSessionHandler, getUserSessionsHandler } from '../components/session/controller';
+import {
+  createUserSessionHandler,
+  deleteSessionHandler,
+  getUserSessionsHandler
+} from '../components/session/controller';
 import { createSessionSchema } from '../components/session/schema';
 import { createUserHandler } from '../components/user/controller';
 import { createUserSchema } from '../components/user/schema';
@@ -12,8 +16,11 @@ const routes = app => {
     res.sendStatus(200);
   });
 
+  // USERS
   app.post('/api/v1/users', validateResource(createUserSchema), createUserHandler);
-  app.post('/api/v1/sessions', validateResource(createSessionSchema), createSessionHandler);
+
+  //SESSIONS
+  app.post('/api/v1/sessions', validateResource(createSessionSchema), createUserSessionHandler);
   app.get('/api/v1/sessions', requireUser, getUserSessionsHandler);
   app.delete('/api/v1/sessions', requireUser, deleteSessionHandler);
 };

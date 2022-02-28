@@ -15,7 +15,7 @@ dotenv.config();
 const app = express();
 
 app.use(connectLiveReload());
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(deserializeUser);
 app.use(bodyParser.urlencoded({ extended: true }));
 

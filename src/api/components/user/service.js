@@ -29,3 +29,5 @@ export const validatePassword = async ({ email, password }) => {
 export const findUser = async query => {
   return UserModel.findOne(query).lean();
 };
+
+export default { createUser, validatePassword, findUser };
