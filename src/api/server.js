@@ -1,8 +1,11 @@
 import bodyParser from 'body-parser';
 import connectLiveReload from 'connect-livereload';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 
+import config from '../config/default';
 import connect from '../services/dbConnection';
 import logger from '../services/logger';
 
@@ -14,6 +17,8 @@ dotenv.config();
 
 const app = express();
 
+app.use(cors({ origin: config.origin, credentials: true }));
+app.use(cookieParser());
 app.use(connectLiveReload());
 app.use(express.json());
 app.use(deserializeUser);

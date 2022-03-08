@@ -16,3 +16,8 @@ export const createUserHandler = async (req, res) => {
     return res.status(409).send(err.message);
   }
 };
+
+export const getCurrentUserHandler = async (_req, res) => {
+  logger.info('GET /api/v1/me');
+  return res.status(200).send(res.locals.user);
+};

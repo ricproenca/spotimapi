@@ -25,7 +25,11 @@ export const createUserSessionHandler = async (req, res) => {
     logger.info(`Access token created [${accessToken}]`);
     logger.info(`Refresh token created [${refreshToken}]`);
 
-    // return access
+    // return cookies
+    res.cookie('accessToken', accessToken, config.accessTokenCookie);
+    res.cookie('refreshToken', refreshToken, config.refreshTokenCookie);
+
+    // return tokens
     return res.status(200).send({ accessToken, refreshToken });
   } catch (err) {
     logger.error(err);
