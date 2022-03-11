@@ -24,5 +24,13 @@ export default {
     path: '/',
     sameSite: 'strict',
     secure: process.env.HTTPS
+  },
+  spotifyTokenCookie: {
+    maxAge: 3.154e10, // '1y'
+    httpOnly: true,
+    domain: process.env.AUTH_DOMAIN,
+    path: '/',
+    sameSite: 'strict',
+    secure: process.env.HTTPS
   }
 };
