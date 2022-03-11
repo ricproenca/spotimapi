@@ -29,3 +29,7 @@ https://medium.com/swlh/how-i-structure-my-node-js-rest-apis-4e8904ccd2fb
 - change filenames model => userModel
 - add unit tests
 - log https://betterstack.com/community/guides/logging/node-js/how-to-install-setup-and-use-pino-to-log-node-js-applications
+
+## custom logging
+
+https://www.moesif.com/blog/technical/logging/How-we-built-a-Nodejs-Middleware-to-Log-HTTP-API-Requests-and-Responses/

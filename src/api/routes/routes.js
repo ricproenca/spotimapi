@@ -10,7 +10,7 @@ import { lyricsFinderHandler } from '../components/spotify/lyricsController';
 import { getMeHandler } from '../components/spotify/userController';
 import { createUserHandler, getCurrentUserHandler } from '../components/user/controller';
 import { createUserSchema } from '../components/user/schema';
-import requireSpotifyWebApi from '../middleware/requireSpotifyWebApi';
+import requireSpotifyToken from '../middleware/requireSpotifyToken';
 import requireUser from '../middleware/requireUser';
 import validateResource from '../middleware/validateResource';
 
@@ -35,10 +35,10 @@ const routes = app => {
   app.post('/api/v1/spotify/refresh', refreshUserHandler);
 
   // SPOTIFY USER
-  app.get('/api/v1/spotify/me', requireSpotifyWebApi, getMeHandler);
+  app.get('/api/v1/spotify/me', requireSpotifyToken, getMeHandler);
 
   // LYRICS
-  app.post('/api/v1/spotify/lyrics', requireSpotifyWebApi, lyricsFinderHandler);
+  app.get('/api/v1/spotify/lyrics', requireSpotifyToken, lyricsFinderHandler);
 };
 
 export default routes;

@@ -1,15 +1,18 @@
+import dotenv from 'dotenv';
 import { get } from 'lodash';
 import spotifyWebApi from 'spotify-web-api-node';
 
+dotenv.config();
+
 const credentials = {
-  clientId: '05647fe3b2f54b7786acea04e66bfea7',
-  clientSecret: '2612dd99d3984463962d82511853c5ed',
-  redirectUri: 'http://localhost:3000/redirect/'
+  clientId: process.env.SPOTIFY_CLIENT_ID,
+  clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+  redirectUri: process.env.SPOTIFY_REDIRECT_URI
 };
 
 const spotifyApi = new spotifyWebApi(credentials);
 
-const requireSpotifyWebApi = (req, res, next) => {
+const requireSpotifyToken = (req, res, next) => {
   const accessToken = get(req, 'headers.authorization', '').replace(/^Bearer\s/, '');
 
   spotifyApi.setAccessToken(accessToken);
@@ -18,4 +21,4 @@ const requireSpotifyWebApi = (req, res, next) => {
   return next();
 };
 
-export default requireSpotifyWebApi;
+export default requireSpotifyToken;

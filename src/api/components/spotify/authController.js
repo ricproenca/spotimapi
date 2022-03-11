@@ -1,9 +1,6 @@
 import dotenv from 'dotenv';
 import spotifyWebApi from 'spotify-web-api-node';
 
-import config from '../../../config/default';
-import logger from '../../../services/logger';
-
 dotenv.config();
 
 const credentials = {
@@ -13,15 +10,13 @@ const credentials = {
 };
 
 export const loginUserHandler = async (req, res) => {
-  logger.info('GET /api/v1/spotify/login');
-
   let spotifyApi = new spotifyWebApi(credentials);
 
   try {
     const data = await spotifyApi.authorizationCodeGrant(req.body.code);
     if (data?.body?.access_token) {
       const accessToken = data.body.access_token;
-      res.cookie('spotifyToken', accessToken, config.accessTokenCookie);
+
       return res.status(200).send({ accessToken });
     }
     res.sendStatus(500);
