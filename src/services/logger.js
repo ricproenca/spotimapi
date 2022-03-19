@@ -1,8 +1,5 @@
 import dayjs from 'dayjs';
-import dotenv from 'dotenv';
 import pino from 'pino';
-
-dotenv.config();
 
 /**
  * Customize log:

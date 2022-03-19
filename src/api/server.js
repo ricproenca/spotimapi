@@ -7,6 +7,7 @@ import express from 'express';
 
 import config from '../config/default';
 import connect from '../services/dbConnection';
+import endpointLogger from '../services/endpointLogger';
 import logger from '../services/logger';
 
 import '../utils/liveReload';
@@ -16,13 +17,13 @@ import routes from './routes/routes';
 dotenv.config();
 
 const app = express();
-
 app.use(cors({ origin: config.origin, credentials: true }));
 app.use(cookieParser());
 app.use(connectLiveReload());
 app.use(express.json());
 app.use(deserializeUser);
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(endpointLogger);
 
 const port = process.env.PORT || 5000;
 app.listen(port, async () => {
